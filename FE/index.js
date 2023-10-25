@@ -11,12 +11,18 @@ class User {
     }
 }
 
+submitBtn.addEventListener('click', postInfo);
 async function postInfo(e) {
     e.preventDefault();
     
     const currentUser = new User(userName.value, userLatitude.value, userLongitude.value);
 
-    console.log(currentUser);
+    const res = await fetch(`http://localhost:9329/user/:${currentUser.name}`,
+    {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+          },
+        body: JSON.stringify(currentUser)
+    });
 };
-
-submitBtn.addEventListener('click', postInfo);
