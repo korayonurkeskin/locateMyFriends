@@ -13,6 +13,7 @@ app.use(express.static('FE'));
 app.use(express.json());  // expect JSON
 app.use(cors());
 
+// upload data to redis database
 app.post('/user/:id', async (req, res) => {
     const { id } = req.params;
     const { name, lat, lng } = req.body;
