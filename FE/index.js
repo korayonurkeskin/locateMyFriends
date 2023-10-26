@@ -39,5 +39,18 @@ async function initMap() {
         center: { lat: 49.2827, lng: -123.1207 },
         mapId: "DEMO_MAP_ID",
     });
+
+    const markers = []; // list of user objects
+    // add markers
+    async function renderMarkers(listOfMarkers) {
+        for (let i = 0; i < markers.length; i++) {
+            const marker = new AdvancedMarkerElement({
+                map: map,
+                position: {lat: Number(markers[i].lat), lng: Number(markers[i].lng)},
+                title: markers[i].name
+            });
+        };
+    };
+    renderMarkers(markers);
 };
 initMap();
