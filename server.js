@@ -25,6 +25,8 @@ app.post('/user/:id', async (req, res) => {
         {
             id : `${name} lives at latitude=${lat}, longitude=${lng}`,
         });
+    
+    await redisClient.disconnect();
 });
 
 // Render HTML file
