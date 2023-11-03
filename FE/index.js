@@ -18,7 +18,7 @@ async function postInfo(e) {
     
     const currentUser = new User(userName.value, userLatitude.value, userLongitude.value);
 
-    const res = await fetch(`http://localhost:9329/user/:${currentUser.name}`,
+    const res = await fetch(
     {
         method: 'POST',
         headers: {
